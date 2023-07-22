@@ -40,7 +40,7 @@ def movie_result(update, context) -> None:
     response = requests.get(s["img"])
     img = BytesIO(response.content)
     query.message.reply_photo(photo=img, caption=f"🎥 {s['title']}")
-    link = ""
+    link = " https://gplinks.in/api?api=b9100e48e44bc76b65bb76a857dc79ed721db07e&url=yourdestinationlink.com&alias=CustomAlias"
     links = s["links"]
     for i in links:
         link += "🎬" + i + "\n" + links[i] + "\n\n"
