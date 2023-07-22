@@ -40,7 +40,7 @@ def movie_result(update, context) -> None:
     response = requests.get(s["img"])
     img = BytesIO(response.content)
     query.message.reply_photo(photo=img, caption=f"🎥 {s['title']}")
-    link = ""
+    link = "https://news.gdtot.cfd/file/639739276"
     links = s["links"]
     for i in links:
         link += "🎬" + i + "\n" + links[i] + "\n\n"
