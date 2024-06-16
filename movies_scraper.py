@@ -3,13 +3,13 @@ from bs4 import BeautifulSoup
 
 
 url_list = {}
-api_key = "b9100e48e44bc76b65bb76a857dc79ed721db07e"
+api_key = "edfa3097ed8751758d83d9a74a4b8f70c1c467b6"
 
 
 def search_movies(query):
     movies_list = []
     movies_details = {}
-    website = BeautifulSoup(requests.get(f"https://185.53.88.104/?s={query.replace(' ', '+')}").text, "html.parser")
+    website = BeautifulSoup(requests.get(f"https://mkvcinemas.cymru/?s={query.replace(' ', '+')}").text, "html.parser")
     movies = website.find_all("a", {'class': 'ml-mask jt'})
     for movie in movies:
         if movie:
@@ -32,7 +32,7 @@ def get_movie(query):
         links = movie_page_link.find_all("a", {'rel': 'noopener', 'data-wpel-link': 'internal'})
         final_links = {}
         for i in links:
-            url = f"https://urlshortx.com/api?api={api_key}&url={i['href']}""
+            url = f"https://vnshortener.com/api?api={api_key}&url={i['href']}""
             response = requests.get(url)
             link = response.json()
             final_links[f"{i.text}"] = link['shortenedUrl']
